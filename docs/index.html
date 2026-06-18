@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR QA Automation Assignment - Manoj Kumar A</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .header {
+            background: #1f2937;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            margin-bottom: 15px;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .profile-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+            color: #1f2937;
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .link-card {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-2px);
+            background: #eef2ff;
+        }
+
+        .link-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>RR QA Automation Assignment</h1>
+
+        <p>
+            Automated UI & API Validation Suite for TMDB Discover Application
+        </p>
+
+        <div class="profile-info">
+            <div class="profile-item">
+                <strong>Candidate:</strong> Manoj Kumar A
+            </div>
+
+            <div class="profile-item">
+                <strong>Experience:</strong> 9+ Years QA Automation
+            </div>
+
+            <div class="profile-item">
+                <strong>Framework:</strong> Playwright + Python
+            </div>
+        </div>
+
+        <div class="badge">
+            Quality Engineering | UI Automation | API Validation
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Project Overview</h2>
+
+        <p>
+            This project demonstrates a complete QA automation approach for the
+            TMDB Discover demo application, including test planning,
+            automated functional validation, API verification,
+            defect reporting, execution reporting, and CI integration strategy.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Documentation</h2>
+
+        <div class="links">
+
+            <a class="link-card" href="viewer.html?file=TestStrategy.md">
+                <div class="link-title">📘 Test Strategy</div>
+                <div>Testing scope, approach, risks and methodology.</div>
+            </a>
+
+            <a class="link-card" href="viewer.html?file=TestCases.md">
+                <div class="link-title">📗 Test Cases</div>
+                <div>Detailed test scenarios and expected results.</div>
+            </a>
+
+            <a class="link-card" href="viewer.html?file=DefectReport.md">
+                <div class="link-title">🐞 Defect Report</div>
+                <div>Issues identified during execution.</div>
+            </a>
+
+            <a class="link-card" href="viewer.html?file=CIApproach.md">
+                <div class="link-title">⚙️ CI Integration Approach</div>
+                <div>Proposed GitHub Actions CI workflow.</div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Execution Artifacts</h2>
+
+        <div class="links">
+
+            <a class="link-card" href="../reports/report.html">
+                <div class="link-title">📊 HTML Test Report</div>
+                <div>Automated execution summary and results.</div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Automation Coverage</h2>
+
+        <ul>
+            <li>Category Filters (Popular, Trending, Newest, Top Rated)</li>
+            <li>Title Search Validation</li>
+            <li>Movie / TV Show Type Filtering</li>
+            <li>Year Filter Validation</li>
+            <li>Rating Filter Validation</li>
+            <li>Genre Filter Validation</li>
+            <li>Pagination Verification</li>
+            <li>Negative Test Scenarios</li>
+            <li>Browser API Validation</li>
+            <li>UI vs API Data Verification</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        RR QA Automation Assignment Submission<br>
+        Manoj Kumar A
+    </div>
+
+</div>
+
+</body>
+</html>
