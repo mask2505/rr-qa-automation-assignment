@@ -8,6 +8,7 @@ from pages.discover_page import DiscoverPage
 def test_tc022_verify_movie_cards_displayed(app):
 
     discover = DiscoverPage(app)
+    app.wait_for_timeout(3000)
 
     assert discover.get_card_count() > 0
 
@@ -17,6 +18,7 @@ def test_tc022_verify_movie_cards_displayed(app):
 def test_tc023_verify_movie_card_contains_thumbnail(app):
 
     discover = DiscoverPage(app)
+    app.wait_for_timeout(3000)
 
     assert discover.get_first_card_thumbnail().is_visible()
 
@@ -35,6 +37,7 @@ def test_tc024_verify_movie_card_contains_title(app):
 def test_tc025_verify_movie_card_contains_genre(app):
 
     discover = DiscoverPage(app)
+    app.wait_for_timeout(3000)
 
     assert discover.get_first_card_genre() != ""
 
@@ -44,6 +47,7 @@ def test_tc025_verify_movie_card_contains_genre(app):
 def test_tc026_verify_movie_card_contains_release_year(app):
 
     discover = DiscoverPage(app)
+    app.wait_for_timeout(3000)
 
     year = discover.get_first_card_release_year()
 

@@ -50,6 +50,7 @@ def test_tc030_verify_last_available_page_navigation(app):
     last_page = discover.get_last_page_number()
 
     discover.click_last_page()
+    app.wait_for_timeout(3000)
 
     assert discover.get_current_page() == last_page
 

@@ -75,6 +75,7 @@ def test_tc013_verify_genre_filter(app):
     discover = DiscoverPage(app)
 
     discover.select_genre("Action")
+    app.wait_for_timeout(3000)
 
     assert discover.get_card_count() > 0
 
