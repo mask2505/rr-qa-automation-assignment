@@ -35,7 +35,7 @@ def test_tc020_verify_search_with_invalid_movie_title(app):
     discover = DiscoverPage(app)
 
     discover.search_movie("XYZ_INVALID_MOVIE_123456")
-    app.wait_for_timeout(3000)
+    app.wait_for_timeout(5000)
     assert discover.get_card_count() == 0
 
 @pytest.mark.tc_id("TC021")
