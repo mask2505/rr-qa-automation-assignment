@@ -191,3 +191,140 @@ class DiscoverPage:
             )
 
         self.page.locator(xpath).click(force=True)
+
+    # ==========================================================
+    # Search bar
+    # ==========================================================
+
+    def click_search(self):
+        self.page.locator(
+            "//div/input[@name='search']"
+        ).click()
+
+    def enter_search_text(self, movie_name):
+
+        self.page.locator(
+            "//div/input[@name='search']"
+        ).fill(movie_name)
+
+    def search_movie(self, movie_name):
+
+        self.click_search()
+
+        self.enter_search_text(movie_name)
+
+        self.page.keyboard.press("Enter")
+
+    def clear_search(self):
+
+        self.click_search()
+
+        self.page.locator(
+            "//div/input[@name='search']"
+        ).fill("")
+
+        self.page.keyboard.press("Enter")
+
+    # ==========================================================
+    # Movie cards
+    # ==========================================================
+
+    def get_first_card_title(self):
+
+        return self.page.locator(
+            "(//div[contains(@class,'grid')]//div[contains(@class,'flex')]/p)[1]"
+        ).text_content().strip()
+
+    def get_first_card_thumbnail(self):
+
+        return self.page.locator(
+            "(//div[contains(@class,'grid')]//div[contains(@class,'flex')]/img)[1]"
+        )
+
+    def get_first_card_metadata(self):
+        return self.page.locator(
+            "(//div[contains(@class,'grid')]//div[contains(@class,'flex')]/p)[2]"
+        ).text_content().strip()
+
+    def get_first_card_genre(self):
+        metadata = self.get_first_card_metadata()
+        return metadata.split(",")[0].strip()
+
+    def get_first_card_release_year(self):
+        metadata = self.get_first_card_metadata()
+        return metadata.split(",")[1].strip()
+
+    # ==========================================================
+    # Pagination
+    # ==========================================================
+
+    def get_current_page(self):
+        self.scroll_to_bottom()
+        return self.wait_for_locator(
+            "//li[contains(@class,'selected')]"
+        ).text_content().strip()
+
+    def click_next_page(self):
+        self.scroll_to_bottom()
+        self.wait_for_locator("//li[contains(@class,'next')]").click()
+
+    def click_previous_page(self):
+        self.scroll_to_bottom()
+        self.page.wait_for_selector("//li[contains(@class,'previous')]").click()
+
+    def click_page_number(self, page_number):
+        self.scroll_to_bottom()
+        self.wait_for_locator(
+            f"//li/a[text()='{page_number}']"
+        ).click()
+
+    def get_last_page_locator(self):
+        self.scroll_to_bottom()
+        return self.wait_for_locator(
+            "//li[contains(@class,'next')]/preceding-sibling::li[1]/a"
+        )
+
+    def get_last_page_number(self):
+        self.scroll_to_bottom()
+        return self.wait_for_locator(
+            "//li[contains(@class,'next')]/preceding-sibling::li[1]/a"
+        ).text_content().strip()
+
+    def click_last_page(self):
+        self.scroll_to_bottom()
+        self.get_last_page_locator().click()
+
+    # ==========================================================
+    # Scrolling
+    # ==========================================================
+
+    def scroll_to_bottom(self):
+
+        self.page.locator(
+            "//div[contains(@class,'overflow-scroll')]"
+        ).evaluate(
+            "(element) => element.scrollTop = element.scrollHeight"
+        )
+
+    def scroll_to_top(self):
+        self.page.evaluate(
+            "window.scrollTo(0, 0)"
+        )
+
+    def get_scroll_position(self):
+
+        return self.page.locator(
+            "//div[contains(@class,'overflow-scroll')]"
+        ).evaluate(
+            "(element) => element.scrollTop"
+        )
+
+    def is_discovery_filters_visible(self):
+        return self.page.locator(
+            "//p[contains(text(),'DISCOVER OPTIONS')]"
+        ).is_visible()
+
+    def is_pagination_visible(self):
+        return self.page.locator(
+            "//li[contains(@class,'next')]"
+        ).is_visible()

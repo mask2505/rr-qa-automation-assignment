@@ -5,8 +5,16 @@ BASE_URL = "https://tmdb-discover.surge.sh"
 
 @pytest.fixture
 def app(page):
-    page.goto(BASE_URL)
-    page.wait_for_load_state("networkidle")
+    for _ in range(3):
+        try:
+            page.goto(
+                BASE_URL,
+                wait_until="domcontentloaded",
+                timeout=60000
+            )
+            break
+        except Exception:
+            continue
     return page
 
 
