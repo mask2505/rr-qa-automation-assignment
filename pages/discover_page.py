@@ -58,7 +58,7 @@ class DiscoverPage:
     # ==========================================================
 
     def get_card_count(self):
-        cards = self.page.locator(
+        cards = self.wait_for_locator(
             "//div[contains(@class,'grid')]//div[contains(@class,'flex')]"
         )
 
@@ -259,7 +259,6 @@ class DiscoverPage:
     # ==========================================================
 
     def get_current_page(self):
-        self.scroll_to_bottom()
         return self.wait_for_locator(
             "//li[contains(@class,'selected')]"
         ).text_content().strip()
